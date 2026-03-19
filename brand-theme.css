@@ -12,3 +12,13 @@ body {
 .card:hover {
     transform: translateY(-5px);
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --custom-card-shadow: rgba(255, 255, 255, 0.05)
+    }
+}
+
+.card {
+    box-shadow:  0 4px 8px var(--custom-card-shadow)
+}
