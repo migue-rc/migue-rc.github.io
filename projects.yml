@@ -1,17 +1,23 @@
 - title: "Lung Cancer Risk Predictor"
   description: "A machine learning model evaluating confidence intervals."
   path: "https://migue-rc.github.io/lung-cancer-predictor"
-  image: "assets/project-thumbnails/lung-cancer.png"
+  image: "https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif"
   categories: [Data Science, Healthcare]
 
-- title: "Rucker"
-  description: "A mobile application for tracking rucking workouts."
-  path: "https://rucker.debloat.us" 
-  image: "assets/project-thumbnails/rucker.png"
-  categories: [Mobile Dev, Fitness]
+- title: "Car Insurance & Telematics Analytics"
+  description: "Identify high-risk drivers, complex non-linear patterns into management strategies."
+  path: "https://migue-rc.github.io/car-insurance"
+  categories: [Data Science, Telematics]
+  image: "https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/charts/flow%20chart%20prev.png"
+  
+# - title: "Rucker"
+#   description: "A mobile application for tracking rucking workouts."
+#   path: "https://rucker.debloat.us"
+#   image: "assets/project-thumbnails/rucker.png"
+#   categories: [Mobile Dev, Fitness]
 
-- title: "Momentos"
-  description: "SaaS platform for event photo collection."
-  path: "https://momentos.studio"
-  image: "assets/project-thumbnails/momentos.png"
-  categories: [Software Engineering, SaaS]
+# - title: "Momentos"
+#   description: "SaaS platform for event photo collection."
+#   path: "https://momentos.studio"
+#   image: "assets/project-thumbnails/momentos.png"
+#   categories: [Event Managment]
