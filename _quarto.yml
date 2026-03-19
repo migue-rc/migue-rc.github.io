@@ -3,11 +3,12 @@ project:
 
 website:
   title: "Miguel RC"
+  favicon: favicon.ico
   site-url: "https://migue-rc.github.io"
   navbar:
     left:
       - href: index.qmd
-        text: "Portfolio"
+        text: "Main"
       - href: about.qmd
         text: "About"
     right:
@@ -18,7 +19,8 @@ website:
 
 format:
   html:
-    theme: 
+    theme:
       light: sketchy
-      dark: darkly
-    css: brand-theme.css  # Loads the file locally for the hub
+      dark: [sketchy, sketchy-dark.scss]
+    css: brand-theme.css 
+    toc: true

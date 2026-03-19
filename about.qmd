@@ -1,0 +1,37 @@
+---
+title: "Miguel R."
+image: "assets/profile.jpg"
+about:
+  template: trestles # This creates a clean two-column layout (Image/Links on left, Text on right)
+  image-width: 15em
+  image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/rmigue
+    - icon: github
+      text: GitHub
+      href: https://github.com/migue-rc
+    - icon: envelope
+      text: Email
+      href: mailto:miguel@debloat.us
+---
+
+I am a software engineer with a deep focus on data science, bridging the gap between complex predictive modeling and scalable, user-facing applications. With a strong foundation in React, React Native, and versatile backend development, I don't just analyze data; I build the systems that put those insights directly into the hands of users.
+
+I have extensive experience architecting data-heavy applications, ensuring that large volumes of information are processed efficiently and displayed intuitively. I particularly thrive when working with geospatial data translating complex datasets into interactive, highly responsive maps that bring geographic insights to life and drive user engagement.
+
+My passion for clean, reusable code drives me to deliver innovative solutions, whether I am engineering zero latency frontend deployments for machine learning models or optimizing system performance.
+
+## Education
+
+**Pontificia Universidad Católica** 
+M.S. in Data Science | *In Progress*
+
+**Academia de Guerra** B.S. in Military Sciences 
+
+## Core Competencies
+
+* **Data Science & Modeling:** Predictive Analytics, StatsModels, Scikit-Learn, TensorFlow.js, Geospatial Analysis, Quarto, Python.
+* **Software Engineering:** Full-stack Web Development, Mobile App Development React/React Native, TypeScript, Bash.
+* **Systems & Tools:** Linux, Google Cloud Platform, Amazon Web Services, PostgreSQL, MongoDB, Firebase. 
