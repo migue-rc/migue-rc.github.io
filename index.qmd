@@ -9,5 +9,6 @@ listing:
   image-height: "200px"
 ---
 
-This my collection of curated content on data science and software engineering.
-Select a category below to filter projects, or click a card to view the deployed application or notebook.
+This my collection of curated content on **data science** and **software engineering**.
+
+Select a category on the side to filter projects, or click a card to view the deployed application or notebook.

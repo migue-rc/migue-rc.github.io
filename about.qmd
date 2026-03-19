@@ -26,7 +26,7 @@ My passion for clean, reusable code drives me to deliver innovative solutions, w
 ## Education
 
 **Pontificia Universidad Católica** 
-M.S. in Data Science | *In Progress*
+M.S. in Data Science | `In Progress`    
 
 **Academia de Guerra** B.S. in Military Sciences 
 
