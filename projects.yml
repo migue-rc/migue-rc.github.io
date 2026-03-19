@@ -12,7 +12,7 @@
   
 - title: "Aggressive dogs don't bite"
   description: "Exploring the relationship between dog traits."
-  path: "https://migue-rc.gitdhub.io/EDA_dogs"
+  path: "https://migue-rc.github.io/EDA_dogs"
   categories: [Data Science, Dog]
   image: "https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg"
   
