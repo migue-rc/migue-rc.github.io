@@ -24,3 +24,6 @@ format:
       dark: [sketchy, sketchy-dark.scss]
     css: brand-theme.css 
     toc: true
+    highlight-style: 
+      light: github
+      dark: monokai

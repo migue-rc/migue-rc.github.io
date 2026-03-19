@@ -9,4 +9,5 @@ listing:
   image-height: "200px"
 ---
 
-Welcome to my portfolio. Select a category below to filter projects, or click a card to view the deployed application or notebook.
+This my collection of curated content on data science and software engineering.
+Select a category below to filter projects, or click a card to view the deployed application or notebook.

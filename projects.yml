@@ -1,6 +1,6 @@
 - title: "Lung Cancer Risk Predictor"
   description: "A machine learning model evaluating confidence intervals."
-  path: "https://migue-rc.github.io/lung-cancer-predictor"
+  path: "https://migue-rc.github.io/lung-cancer-risk"
   image: "https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif"
   categories: [Data Science, Healthcare]
 
@@ -9,6 +9,12 @@
   path: "https://migue-rc.github.io/car-insurance"
   categories: [Data Science, Telematics]
   image: "https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/charts/flow%20chart%20prev.png"
+  
+- title: "Aggressive dogs don't bite"
+  description: "Exploring the relationship between dog traits."
+  path: "https://migue-rc.gitdhub.io/EDA_dogs"
+  categories: [Data Science, Dog]
+  image: "https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg"
   
 # - title: "Rucker"
 #   description: "A mobile application for tracking rucking workouts."

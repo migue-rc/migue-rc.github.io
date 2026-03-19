@@ -19,20 +19,16 @@ $link-color: #66d9ef !default;
 $card-bg: #2c3035 !default;
 $card-cap-bg: rgba(255, 255, 255, 0.05) !default;
 
-// 5. The Hand-Drawn Borders
 // We need to lighten the borders so they show up against the dark background
 $border-color: #6c757d !default; 
 $input-border-color: #6c757d !default;
 
-/*-- scss:rules --*/
 
-// Force the navbar to adopt the dark slate look instead of the default light Sketchy navbar
 .navbar {
   background-color: #1a1c20 !important;
   border-bottom: 2px solid #6c757d;
 }
 
-// Make the text inputs look like dark chalkboards
 .form-control {
   background-color: #2c3035;
   color: #f8f9fa;
@@ -41,4 +37,23 @@ $input-border-color: #6c757d !default;
 .form-control:focus {
   background-color: #222529;
   color: #ffffff;
+}
+
+code {
+  color: #66d9ef !important;  
+  background-color: rgba(255, 255, 255, 0.05);  
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #1a1c20 !important;  
+  color: #f8f9fa !important;             
+  border: 1px solid #444a51 !important;  
+  border-radius: 8px;
+}
+
+pre code {
+  color: #f8f9fa !important;
+  background-color: transparent; 
 }
