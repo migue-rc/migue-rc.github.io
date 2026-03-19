@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Miguel RC"
+  site-url: "https://migue-rc.github.io"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Portfolio"
+      - href: about.qmd
+        text: "About"
+    right:
+      - icon: github
+        href: https://github.com/migue-rc
+      - icon: linkedin
+        href: https://linkedin.com/in/rmigue
+
+format:
+  html:
+    theme: 
+      light: sketchy
+      dark: darkly
+    css: brand-theme.css  # Loads the file locally for the hub

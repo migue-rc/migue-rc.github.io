@@ -1,0 +1,17 @@
+- title: "Lung Cancer Risk Predictor"
+  description: "A machine learning model evaluating confidence intervals."
+  path: "https://migue-rc.github.io/lung-cancer-predictor"
+  image: "assets/project-thumbnails/lung-cancer.png"
+  categories: [Data Science, Healthcare]
+
+- title: "Rucker"
+  description: "A mobile application for tracking rucking workouts."
+  path: "https://rucker.debloat.us" 
+  image: "assets/project-thumbnails/rucker.png"
+  categories: [Mobile Dev, Fitness]
+
+- title: "Momentos"
+  description: "SaaS platform for event photo collection."
+  path: "https://momentos.studio"
+  image: "assets/project-thumbnails/momentos.png"
+  categories: [Software Engineering, SaaS]

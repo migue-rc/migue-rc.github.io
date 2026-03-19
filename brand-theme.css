@@ -1,0 +1,14 @@
+/* Ensure the font is crisp and modern across the entire ecosystem */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Optional: Clean up the card borders from the Sketchy theme */
+.card {
+    border-radius: 10px !important;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}

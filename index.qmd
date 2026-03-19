@@ -1,0 +1,12 @@
+---
+title: "Data Science & Software Engineering"
+listing:
+  contents: projects.yml
+  type: grid
+  categories: true
+  sort: "title"
+  grid-columns: 3
+  image-height: "200px"
+---
+
+Welcome to my portfolio. Select a category below to filter projects, or click a card to view the deployed application or notebook.
