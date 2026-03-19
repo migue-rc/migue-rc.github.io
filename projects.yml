@@ -8,7 +8,7 @@
   description: "Identify high-risk drivers, complex non-linear patterns into management strategies."
   path: "https://migue-rc.github.io/car-insurance"
   categories: [Data Science, Telematics]
-  image: "https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/charts/flow%20chart%20prev.png"
+  image: "https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/assets/hero.jpg"
   
 - title: "Aggressive dogs don't bite"
   description: "Exploring the relationship between dog traits."
