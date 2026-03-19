@@ -1,9 +1,30 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Miguel R.",
+    "section": "",
+    "text": "I am a software engineer with a deep focus on data science, bridging the gap between complex predictive modeling and scalable, user-facing applications. With a strong foundation in React, React Native, and versatile backend development, I don’t just analyze data; I build the systems that put those insights directly into the hands of users.\nI have extensive experience architecting data-heavy applications, ensuring that large volumes of information are processed efficiently and displayed intuitively. I particularly thrive when working with geospatial data translating complex datasets into interactive, highly responsive maps that bring geographic insights to life and drive user engagement.\nMy passion for clean, reusable code drives me to deliver innovative solutions, whether I am engineering zero latency frontend deployments for machine learning models or optimizing system performance."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Miguel R.",
+    "section": "Education",
+    "text": "Education\nPontificia Universidad Católica M.S. in Data Science | In Progress\nAcademia de Guerra B.S. in Military Sciences"
+  },
+  {
+    "objectID": "about.html#core-competencies",
+    "href": "about.html#core-competencies",
+    "title": "Miguel R.",
+    "section": "Core Competencies",
+    "text": "Core Competencies\n\nData Science & Modeling: Predictive Analytics, StatsModels, Scikit-Learn, TensorFlow.js, Geospatial Analysis, Quarto, Python.\nSoftware Engineering: Full-stack Web Development, Mobile App Development React/React Native, TypeScript, Bash.\nSystems & Tools: Linux, Google Cloud Platform, Amazon Web Services, PostgreSQL, MongoDB, Firebase."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Data Science & Software Engineering",
     "section": "",
-    "text": "Welcome to my portfolio. Select a category below to filter projects, or click a card to view the deployed application or notebook.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLung Cancer Risk Predictor\n\n\n\nData Science\n\nHealthcare\n\n\n\nA machine learning model evaluating confidence intervals.\n\n\n\n\n\n\n\n\n\n\n\n\nMomentos\n\n\n\nSoftware Engineering\n\nSaaS\n\n\n\nSaaS platform for event photo collection.\n\n\n\n\n\n\n\n\n\n\n\n\nRucker\n\n\n\nMobile Dev\n\nFitness\n\n\n\nA mobile application for tracking rucking workouts.\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my portfolio. Select a category below to filter projects, or click a card to view the deployed application or notebook.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCar Insurance & Telematics Analytics\n\n\n\nData Science\n\nTelematics\n\n\n\nIdentify high-risk drivers, complex non-linear patterns into management strategies.\n\n\n\n\n\n\n\n\n\n\n\n\nLung Cancer Risk Predictor\n\n\n\nData Science\n\nHealthcare\n\n\n\nA machine learning model evaluating confidence intervals.\n\n\n\n\n\nNo matching items"
   }
 ]
