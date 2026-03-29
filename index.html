@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-image','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-description','listing-categories','listing-image','listing-order',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-description","listing-image","listing-categories"],
+      searchColumns: ["listing-title","listing-description","listing-categories","listing-image","listing-order"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -385,26 +385,38 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQZXRz">
-<a href="https://migue-rc.github.io/EDA_dogs" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMFNjaWVuY2UlMkNIZWFsdGhjYXJl">
+<a href="https://migue-rc.github.io/lung-cancer-risk" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg" class="thumbnail-image card-img" style="height: 200px;">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif" class="thumbnail-image card-img" style="height: 200px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Aggressive dogs don’t bite
+Lung Cancer Risk Predictor
 </h5>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGV0cw=='); return false;">Pets</div>
+<div class="listing-category" onclick="window.quartoListingCategory('SGVhbHRoY2FyZQ=='); return false;">Healthcare</div>
 
 </div>
 <div class="card-text listing-description delink">
-<p>Exploring the relationship between dog traits.</p>
+<p>A machine learning model evaluating confidence intervals.</p>
 </div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+order
+</td>
+<td class="order">
+4
+</td>
+</tr>
+
+</tbody></table>
 </div>
 </div></a>
 </div>
@@ -428,33 +440,22 @@ Car Insurance &amp; Telematics Analytics
 <div class="card-text listing-description delink">
 <p>Identify high-risk drivers, complex non-linear patterns into management strategies.</p>
 </div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+order
+</td>
+<td class="order">
+3
+</td>
+</tr>
+
+</tbody></table>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="RGF0YSUyMFNjaWVuY2UlMkNIZWFsdGhjYXJl">
-<a href="https://migue-rc.github.io/lung-cancer-risk" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Lung Cancer Risk Predictor
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SGVhbHRoY2FyZQ=='); return false;">Healthcare</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A machine learning model evaluating confidence intervals.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="RGF0YSUyMFNjaWVuY2UlMkNFZHVjYXRpb24=">
+<div class="g-col-1" data-index="2" data-categories="RGF0YSUyMFNjaWVuY2UlMkNFZHVjYXRpb24=">
 <a href="https://migue-rc.github.io/student-performance" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -474,6 +475,53 @@ Student Performance Analysis
 <div class="card-text listing-description delink">
 <p>Analyzing student performance across various variables.</p>
 </div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+order
+</td>
+<td class="order">
+2
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQZXRz">
+<a href="https://migue-rc.github.io/EDA_dogs" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg" class="thumbnail-image card-img" style="height: 200px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Aggressive dogs don’t bite
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGV0cw=='); return false;">Pets</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Exploring the relationship between dog traits.</p>
+</div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+order
+</td>
+<td class="order">
+1
+</td>
+</tr>
+
+</tbody></table>
 </div>
 </div></a>
 </div>
