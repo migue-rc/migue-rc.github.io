@@ -15,6 +15,12 @@
   path: "https://migue-rc.github.io/EDA_dogs"
   categories: [Data Science, Pets]
   image: "https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg"
+
+- title: "Student Performance Analysis"
+  description: "Analyzing student performance across various variables."
+  path: "https://migue-rc.github.io/student-performance"
+  categories: [Data Science, Education]
+  image: "https://raw.githubusercontent.com/migue-rc/student-performance/refs/heads/main/student_performance_preview.gif"
   
 # - title: "Rucker"
 #   description: "A mobile application for tracking rucking workouts."
