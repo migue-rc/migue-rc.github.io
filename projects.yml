@@ -1,27 +1,39 @@
+- title: "Student Performance Analysis"
+  description: "Analyzing student performance across various variables."
+  path: "https://migue-rc.github.io/student-performance"
+  categories: [Data Science, Education]
+  image: "https://raw.githubusercontent.com/migue-rc/student-performance/refs/heads/main/student_performance_preview.gif"
+  order: 2
+
 - title: "Lung Cancer Risk Predictor"
   description: "A machine learning model evaluating confidence intervals."
   path: "https://migue-rc.github.io/lung-cancer-risk"
   image: "https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif"
   categories: [Data Science, Healthcare]
+  order: 4
 
 - title: "Car Insurance & Telematics Analytics"
   description: "Identify high-risk drivers, complex non-linear patterns into management strategies."
   path: "https://migue-rc.github.io/car-insurance"
   categories: [Data Science, Telematics]
   image: "https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/assets/hero.jpg"
-  
+  order: 3
+
 - title: "Aggressive dogs don't bite"
   description: "Exploring the relationship between dog traits."
   path: "https://migue-rc.github.io/EDA_dogs"
   categories: [Data Science, Pets]
   image: "https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg"
+  order: 1
 
-- title: "Student Performance Analysis"
-  description: "Analyzing student performance across various variables."
-  path: "https://migue-rc.github.io/student-performance"
-  categories: [Data Science, Education]
-  image: "https://raw.githubusercontent.com/migue-rc/student-performance/refs/heads/main/student_performance_preview.gif"
-  
+
+- title: "Linear Regression from Scratch"
+  description: "Explores the underlying math and nuances for this supervised learning algorithm."
+  path: "https://migue-rc.github.io/FS-linear-regression/"
+  categories: [Machine Learning, Linear Regression]
+  image: "https://raw.githubusercontent.com/migue-rc/FS-linear-regression/refs/heads/main/assets/hero.gif"
+  order: 5
+
 # - title: "Rucker"
 #   description: "A mobile application for tracking rucking workouts."
 #   path: "https://rucker.debloat.us"
