@@ -34,6 +34,12 @@
   image: "https://raw.githubusercontent.com/migue-rc/FS-linear-regression/refs/heads/main/assets/hero.gif"
   order: 5
 
+- title: "Logistic Regression from Scratch"
+  description: "Deep dive on Sigmoid"
+  path: "https://migue-rc.github.io/FS-logistic-regression/"
+  categories: [Machine Learning, Linear Regression]
+  image: "https://raw.githubusercontent.com/migue-rc/FS-logistic-regression/refs/heads/main/assets/hero.gif"
+  order: 5
 # - title: "Rucker"
 #   description: "A mobile application for tracking rucking workouts."
 #   path: "https://rucker.debloat.us"
