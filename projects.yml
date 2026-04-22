@@ -37,7 +37,7 @@
 - title: "Logistic Regression from Scratch"
   description: "deep dive exploration of logistic regression, built entirely from scratch using Numerical Python"
   path: "https://migue-rc.github.io/FS-logistic-regression/"
-  categories: [Machine Learning, Linear Regression]
+  categories: [Machine Learning, Classification]
   image: "https://raw.githubusercontent.com/migue-rc/FS-logistic-regression/refs/heads/main/assets/hero.gif"
   order: 6
 # - title: "Rucker"
