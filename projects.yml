@@ -40,6 +40,7 @@
   categories: [Machine Learning, Classification]
   image: "https://raw.githubusercontent.com/migue-rc/FS-logistic-regression/refs/heads/main/assets/hero.gif"
   order: 6
+  feature: true
 # - title: "Rucker"
 #   description: "A mobile application for tracking rucking workouts."
 #   path: "https://rucker.debloat.us"

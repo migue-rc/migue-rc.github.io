@@ -5,11 +5,44 @@ listing:
   type: grid
   categories: true
   sort: "order desc"
-  fields: [image, title, description, categories]
-  grid-columns: 3
-  image-height: "200px"
+  fields: [image, title, description, categories, feature]
+  grid-columns: 2
+  image-height: "280px"
 ---
 
 This my collection of curated content on **data science** and **software engineering**.
 
 Select a category on the side to filter projects, or click a card to view the deployed application or notebook.
+
+```{=html}
+<script>
+(function () {
+  function applyFeatured() {
+    document
+      .querySelectorAll('#listing-listing .card-other-values .feature')
+      .forEach(function (td) {
+        var isFeatured = (td.textContent || '').trim().toLowerCase() === 'true';
+        var gridItem = td.closest('.quarto-grid-item');
+        var colWrapper = td.closest('[class*="g-col"]');
+        if (gridItem) gridItem.classList.toggle('card-featured', isFeatured);
+        if (colWrapper) colWrapper.classList.toggle('g-col-featured', isFeatured);
+      });
+  }
+
+  function init() {
+    applyFeatured();
+    var listEl = document.querySelector('#listing-listing .list');
+    if (listEl) {
+      // List.js reorders/refilters nodes; re-apply so classes survive.
+      new MutationObserver(applyFeatured).observe(listEl, { childList: true });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+```

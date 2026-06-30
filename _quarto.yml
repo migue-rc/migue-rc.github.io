@@ -20,7 +20,7 @@ website:
 format:
   html:
     theme:
-      light: sketchy
+      light: [sketchy, sketchy-light.scss]
       dark: [sketchy, sketchy-dark.scss]
     css: brand-theme.css 
     toc: true

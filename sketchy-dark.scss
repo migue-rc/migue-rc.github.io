@@ -20,13 +20,64 @@ $card-bg: #2c3035 !default;
 $card-cap-bg: rgba(255, 255, 255, 0.05) !default;
 
 // We need to lighten the borders so they show up against the dark background
-$border-color: #6c757d !default; 
+$border-color: #6c757d !default;
 $input-border-color: #6c757d !default;
 
+
+/*-- scss:rules --*/
 
 .navbar {
   background-color: #1a1c20 !important;
   border-bottom: 2px solid #6c757d;
+
+  // Keep navbar elements light for contrast against the dark background.
+  --bs-navbar-color: rgba(248, 249, 250, 0.75);
+  --bs-navbar-hover-color: #ffffff;
+  --bs-navbar-active-color: #ffffff;
+  --bs-navbar-brand-color: #f8f9fa;
+  --bs-navbar-brand-hover-color: #ffffff;
+  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.12);
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f8f9fa' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar .navbar-title,
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .menu-text,
+.navbar .bi,
+.navbar .navbar-toggler,
+.navbar .quarto-navigation-tool,
+.navbar .quarto-navigation-tool .bi,
+.navbar #quarto-search .aa-DetachedSearchButton {
+  color: #f8f9fa !important;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .quarto-navigation-tool:hover {
+  color: #ffffff !important;
+}
+
+// Search button icon (Quarto sets it gray) and faint tool opacity.
+.navbar #quarto-search .aa-DetachedSearchButton,
+.navbar #quarto-search .aa-DetachedSearchButtonIcon,
+.navbar #quarto-search .aa-DetachedSearchButtonIcon .aa-SubmitIcon,
+.navbar #quarto-search svg.aa-SubmitIcon {
+  color: #f8f9fa !important;
+}
+
+.navbar .quarto-navigation-tool,
+.navbar #quarto-search .aa-DetachedSearchButton {
+  opacity: 1 !important;
+}
+
+// Dark-mode toggle icon: re-issue the background-image SVG with a light fill.
+.navbar .quarto-color-scheme-toggle:not(.alternate) .bi::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(248, 249, 250, 1)" class="bi bi-toggle-off" viewBox="0 0 16 16"><path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/></svg>') !important;
+}
+.navbar .quarto-color-scheme-toggle.alternate .bi::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(248, 249, 250, 1)" class="bi bi-toggle-on" viewBox="0 0 16 16"><path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>') !important;
 }
 
 .form-control {
