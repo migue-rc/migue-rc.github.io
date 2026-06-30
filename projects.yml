@@ -3,29 +3,30 @@
   path: "https://migue-rc.github.io/student-performance"
   categories: [Data Science, Education]
   image: "https://raw.githubusercontent.com/migue-rc/student-performance/refs/heads/main/student_performance_preview.gif"
-  order: 2
+  order: 1
+  feature: true
 
 - title: "Lung Cancer Risk Predictor"
   description: "A machine learning model evaluating confidence intervals."
   path: "https://migue-rc.github.io/lung-cancer-risk"
   image: "https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif"
   categories: [Data Science, Healthcare]
-  order: 4
+  order: 6
+  feature: true
 
 - title: "Car Insurance & Telematics Analytics"
   description: "Identify high-risk drivers, complex non-linear patterns into management strategies."
   path: "https://migue-rc.github.io/car-insurance"
-  categories: [Data Science, Telematics]
+  categories: [Telematics, EDA]
   image: "https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/assets/hero.jpg"
-  order: 3
+  order: 4
 
 - title: "Aggressive dogs don't bite"
   description: "Exploring the relationship between dog traits."
   path: "https://migue-rc.github.io/EDA_dogs"
-  categories: [Data Science, Pets]
+  categories: [Data Science, Statistics]
   image: "https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg"
-  order: 1
-
+  order: 2
 
 - title: "Linear Regression from Scratch"
   description: "Explores the underlying math and nuances for this supervised learning algorithm."
@@ -40,7 +41,6 @@
   categories: [Machine Learning, Classification]
   image: "https://raw.githubusercontent.com/migue-rc/FS-logistic-regression/refs/heads/main/assets/hero.gif"
   order: 6
-  feature: true
 # - title: "Rucker"
 #   description: "A mobile application for tracking rucking workouts."
 #   path: "https://rucker.debloat.us"

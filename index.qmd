@@ -5,7 +5,7 @@ listing:
   type: grid
   categories: true
   sort: "order desc"
-  fields: [image, title, description, categories, feature]
+  fields: [image, title, description, categories, feature, featured]
   grid-columns: 2
   image-height: "280px"
 ---
@@ -18,23 +18,61 @@ Select a category on the side to filter projects, or click a card to view the de
 <script>
 (function () {
   function applyFeatured() {
+    // Accept either `feature` or `featured` in projects.yml.
     document
-      .querySelectorAll('#listing-listing .card-other-values .feature')
-      .forEach(function (td) {
-        var isFeatured = (td.textContent || '').trim().toLowerCase() === 'true';
-        var gridItem = td.closest('.quarto-grid-item');
-        var colWrapper = td.closest('[class*="g-col"]');
-        if (gridItem) gridItem.classList.toggle('card-featured', isFeatured);
+      .querySelectorAll('#listing-listing .quarto-grid-item')
+      .forEach(function (gridItem) {
+        var flag = gridItem.querySelector(
+          '.card-other-values .feature, .card-other-values .featured'
+        );
+        var isFeatured =
+          !!flag && (flag.textContent || '').trim().toLowerCase() === 'true';
+        var colWrapper = gridItem.closest('[class*="g-col"]');
+        gridItem.classList.toggle('card-featured', isFeatured);
         if (colWrapper) colWrapper.classList.toggle('g-col-featured', isFeatured);
       });
   }
 
-  function init() {
+  function slugify(text) {
+    return (text || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function colorCategories() {
+    // Card tags
+    document
+      .querySelectorAll('#listing-listing .listing-category')
+      .forEach(function (el) {
+        var slug = slugify(el.textContent);
+        if (slug) el.classList.add('cat-colored', 'cat-' + slug);
+      });
+
+    // Sidebar category list (skip "All", which has an empty data-category)
+    document
+      .querySelectorAll('.quarto-listing-category .category')
+      .forEach(function (el) {
+        if (!el.getAttribute('data-category')) return;
+        // Use only the leading text node so the "(count)" span is excluded.
+        var name = el.firstChild ? el.firstChild.textContent : el.textContent;
+        var slug = slugify(name);
+        if (slug) el.classList.add('cat-colored', 'cat-' + slug);
+      });
+  }
+
+  function apply() {
     applyFeatured();
+    colorCategories();
+  }
+
+  function init() {
+    apply();
     var listEl = document.querySelector('#listing-listing .list');
     if (listEl) {
       // List.js reorders/refilters nodes; re-apply so classes survive.
-      new MutationObserver(applyFeatured).observe(listEl, { childList: true });
+      new MutationObserver(apply).observe(listEl, { childList: true });
     }
   }
 

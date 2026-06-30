@@ -3,6 +3,9 @@
    ================================================================= */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    /* Sketchy ships a small base (11pt root x .9rem). Bump body text for
+       readability; mobile gets a larger root below. */
+    font-size: 1rem !important;
 }
 
 /* =================================================================
@@ -22,20 +25,32 @@ body {
    PROJECT CARD REDESIGN
    ================================================================= */
 
-/* Card shell — lift + shadow, rounded, clips image zoom */
+/* Accent used by the hover ring + title (overridden per theme in the
+   sketchy-light / sketchy-dark SCSS so it follows the active color scheme) */
+:root {
+    --card-accent: #2b7fd4;
+    --card-accent-glow: rgba(43, 127, 212, 0.22);
+}
+
+/* Card shell — flat resting state; hover adds a colored ring (no movement) */
 .quarto-grid-item.card {
     border: none !important;
     border-radius: 16px !important;
     overflow: hidden !important;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10) !important;
-    transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    transition: box-shadow 0.25s ease !important;
     cursor: pointer;
 }
 
+/* Hover: 2px accent ring + soft tinted glow. Uses box-shadow (not border)
+   so the card does not shift or resize. */
 .quarto-grid-item.card:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18) !important;
+    box-shadow: 0 0 0 2px var(--card-accent, #2b7fd4),
+                0 10px 30px var(--card-accent-glow, rgba(43, 127, 212, 0.22)) !important;
+}
+
+.quarto-grid-item.card:hover .card-title {
+    color: var(--card-accent, #2b7fd4) !important;
 }
 
 /* Image wrapper — Quarto generates a <p class="card-img-top"> */
@@ -47,17 +62,12 @@ body {
     line-height: 0;
 }
 
-/* Image — zoom on card hover; override the inline height Quarto injects */
+/* Image — override the inline height Quarto injects */
 .quarto-grid-item.card .thumbnail-image {
     width: 100% !important;
     height: 280px !important;
     object-fit: cover !important;
     display: block !important;
-    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
-
-.quarto-grid-item.card:hover .thumbnail-image {
-    transform: scale(1.07) !important;
 }
 
 /* Card body */
@@ -91,7 +101,65 @@ body {
     border-radius: 999px !important;
     border-width: 1px !important;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease !important;
+    transition: filter 0.2s ease, transform 0.2s ease !important;
+}
+
+/* =================================================================
+   PER-CATEGORY COLORS
+   The script in index.qmd adds `.cat-colored` + a `.cat-<slug>` class
+   to each category tag (on cards) and each sidebar category item.
+   Each slug sets a single `--cat-color`; cards use it as a filled-pill
+   background (white text), the sidebar uses it as a colored dot.
+   ================================================================= */
+
+/* One color definition per category (context-independent) */
+.cat-data-science      { --cat-color: #185fa5; } /* blue        */
+.cat-education         { --cat-color: #4d7c0f; } /* green       */
+.cat-healthcare        { --cat-color: #0f766e; } /* teal        */
+.cat-pets              { --cat-color: #be185d; } /* pink        */
+.cat-telematics        { --cat-color: #475569; } /* slate       */
+.cat-machine-learning  { --cat-color: #534ab7; } /* purple      */
+.cat-deep-learning     { --cat-color: #7e22ce; } /* violet      */
+.cat-neural-networks   { --cat-color: #4338ca; } /* indigo      */
+.cat-classification    { --cat-color: #c2410c; } /* coral       */
+.cat-regression        { --cat-color: #be123c; } /* crimson     */
+.cat-linear-regression { --cat-color: #b45309; } /* amber       */
+.cat-clustering        { --cat-color: #a16207; } /* gold-brown  */
+.cat-nlp               { --cat-color: #047857; } /* emerald     */
+.cat-computer-vision   { --cat-color: #a21caf; } /* fuchsia     */
+.cat-time-series       { --cat-color: #9f1239; } /* dark rose   */
+.cat-statistics        { --cat-color: #0891b2; } /* cyan        */
+.cat-eda               { --cat-color: #7c3aed; } /* purple-blue */
+.cat-python            { --cat-color: #1d4ed8; } /* bright blue */
+.cat-numpy             { --cat-color: #0e7490; } /* dark cyan   */
+.cat-visualization     { --cat-color: #0369a1; } /* steel blue  */
+
+/* --- Card tags: solid filled pill, white text (same in both modes) --- */
+.listing-category.cat-colored {
+    color: #ffffff !important;
+    border-color: transparent !important;
+    background-color: var(--cat-color, #6c757d) !important;
+}
+
+.listing-category.cat-colored:hover {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+}
+
+/* --- Sidebar category list ---
+   At rest, each label is shown in its own category color (set per theme in
+   sketchy-light/-dark.scss). On hover / when active, it switches to the
+   accent color. */
+.quarto-listing-category .category {
+    border-radius: 6px;
+    padding: 0.1rem 0.4rem;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.quarto-listing-category .category:hover,
+.quarto-listing-category .category.active {
+    color: var(--card-accent, #2b7fd4) !important;
+    background-color: var(--card-accent-glow, rgba(43, 127, 212, 0.22));
 }
 
 /* Description */
@@ -141,11 +209,6 @@ body {
     min-height: 360px;
     object-fit: cover !important;
     display: block !important;
-    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
-
-.card.card-featured:hover .thumbnail-image {
-    transform: scale(1.05) !important;
 }
 
 /* Content side */
@@ -192,12 +255,87 @@ body {
 /* =================================================================
    DARK MODE
    ================================================================= */
-@media (prefers-color-scheme: dark) {
-    .quarto-grid-item.card {
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.32) !important;
+/* Resting shadow + hover accent ring are handled by the rules above and by
+   the per-theme --card-accent variables in sketchy-light/-dark.scss.
+   (prefers-color-scheme is avoided here because it doesn't track Quarto's
+   manual light/dark toggle.) */
+
+/* =================================================================
+   MOBILE — full-bleed "feed" layout
+   On phones the cards drop their card chrome (border, radius, shadow,
+   background) and become a vertical feed: edge-to-edge image, text
+   below, a thin divider between items.
+   ================================================================= */
+@media (max-width: 767.98px) {
+    /* Larger, more readable base text on phones (Sketchy's 11pt is small). */
+    :root {
+        font-size: 12pt;
     }
 
+    /* Prevent the full-bleed (100vw) images from causing horizontal scroll. */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Single column, no grid gap (spacing handled per item below). */
+    .list.grid.quarto-listing-cols-2 {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 0 !important;
+    }
+
+    /* Strip the card look → feed item. */
+    .quarto-grid-item.card,
+    .card.card-featured {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        overflow: visible !important;          /* let the image bleed out */
+        display: block !important;             /* undo featured 2-col grid */
+        border-bottom: 1px solid rgba(128, 128, 128, 0.25) !important;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* No hover ring / title recolor on touch. */
     .quarto-grid-item.card:hover {
-        box-shadow: 0 28px 60px rgba(0, 0, 0, 0.50) !important;
+        box-shadow: none !important;
+    }
+    .quarto-grid-item.card:hover .card-title {
+        color: inherit !important;
+    }
+
+    /* Drop the trailing divider on the last item. */
+    .list.grid > [class*="g-col"]:last-child .quarto-grid-item.card {
+        border-bottom: none !important;
+    }
+
+    /* Image: edge-to-edge across the full viewport width. */
+    .quarto-grid-item.card .card-img-top {
+        overflow: visible !important;
+        height: auto !important;
+        margin-bottom: 1rem !important;
+    }
+    .quarto-grid-item.card .thumbnail-image,
+    .card.card-featured .thumbnail-image {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        height: 220px !important;
+        min-height: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Text sits in the content column with light horizontal padding. */
+    .quarto-grid-item.card .card-body,
+    .card.card-featured .card-body {
+        padding: 0 0.25rem !important;
+        justify-content: flex-start !important;
+    }
+
+    /* Normalize featured title size to match the feed. */
+    .card.card-featured .card-title {
+        font-size: 1.15rem !important;
     }
 }
