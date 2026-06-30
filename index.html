@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-3f230b53dc93e4a04bf4a3505d77a42a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ba07185b76391d332c22ecbac67f7ebd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-7a83654365c66b69b3a199b5dfbf9c10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-ba07185b76391d332c22ecbac67f7ebd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2be3c1ddda3f8d9d3a8ab80ecaffd37e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-a272671ba4d92578c113c78fea039fe8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-2be3c1ddda3f8d9d3a8ab80ecaffd37e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories','listing-feature','listing-featured',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-description","listing-categories","listing-image","listing-order"],
+      searchColumns: ["listing-title","listing-description","listing-categories","listing-image","listing-order","listing-feature"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -353,7 +353,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Q2xhc3NpZmljYXRpb24=">Classification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RWR1Y2F0aW9u">Education <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVhbHRoY2FyZQ==">Healthcare <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZWFyJTIwUmVncmVzc2lvbg==">Linear Regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UGV0cw==">Pets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGVsZW1hdGljcw==">Telematics <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Q2xhc3NpZmljYXRpb24=">Classification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="RURB">EDA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWR1Y2F0aW9u">Education <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVhbHRoY2FyZQ==">Healthcare <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZWFyJTIwUmVncmVzc2lvbg==">Linear Regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGVsZW1hdGljcw==">Telematics <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -379,63 +379,85 @@ window.Quarto = {
 
 <p>This my collection of curated content on <strong>data science</strong> and <strong>software engineering</strong>.</p>
 <p>Select a category on the side to filter projects, or click a card to view the deployed application or notebook.</p>
+<script>
+(function () {
+  function applyFeatured() {
+    // Accept either `feature` or `featured` in projects.yml.
+    document
+      .querySelectorAll('#listing-listing .quarto-grid-item')
+      .forEach(function (gridItem) {
+        var flag = gridItem.querySelector(
+          '.card-other-values .feature, .card-other-values .featured'
+        );
+        var isFeatured =
+          !!flag && (flag.textContent || '').trim().toLowerCase() === 'true';
+        var colWrapper = gridItem.closest('[class*="g-col"]');
+        gridItem.classList.toggle('card-featured', isFeatured);
+        if (colWrapper) colWrapper.classList.toggle('g-col-featured', isFeatured);
+      });
+  }
+
+  function slugify(text) {
+    return (text || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function colorCategories() {
+    // Card tags
+    document
+      .querySelectorAll('#listing-listing .listing-category')
+      .forEach(function (el) {
+        var slug = slugify(el.textContent);
+        if (slug) el.classList.add('cat-colored', 'cat-' + slug);
+      });
+
+    // Sidebar category list (skip "All", which has an empty data-category)
+    document
+      .querySelectorAll('.quarto-listing-category .category')
+      .forEach(function (el) {
+        if (!el.getAttribute('data-category')) return;
+        // Use only the leading text node so the "(count)" span is excluded.
+        var name = el.firstChild ? el.firstChild.textContent : el.textContent;
+        var slug = slugify(name);
+        if (slug) el.classList.add('cat-colored', 'cat-' + slug);
+      });
+  }
+
+  function apply() {
+    applyFeatured();
+    colorCategories();
+  }
+
+  function init() {
+    apply();
+    var listEl = document.querySelector('#listing-listing .list');
+    if (listEl) {
+      // List.js reorders/refilters nodes; re-apply so classes survive.
+      new MutationObserver(apply).observe(listEl, { childList: true });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
 
 
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDQ2xhc3NpZmljYXRpb24=">
-<a href="https://migue-rc.github.io/FS-logistic-regression/" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/FS-logistic-regression/refs/heads/main/assets/hero.gif" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Logistic Regression from Scratch
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2xhc3NpZmljYXRpb24='); return false;">Classification</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>deep dive exploration of logistic regression, built entirely from scratch using Numerical Python</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDTGluZWFyJTIwUmVncmVzc2lvbg==">
-<a href="https://migue-rc.github.io/FS-linear-regression/" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/FS-linear-regression/refs/heads/main/assets/hero.gif" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Linear Regression from Scratch
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TGluZWFyJTIwUmVncmVzc2lvbg=='); return false;">Linear Regression</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Explores the underlying math and nuances for this supervised learning algorithm.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="RGF0YSUyMFNjaWVuY2UlMkNIZWFsdGhjYXJl">
+<div class="list grid quarto-listing-cols-2">
+<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMFNjaWVuY2UlMkNIZWFsdGhjYXJl">
 <a href="https://migue-rc.github.io/lung-cancer-risk" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif" class="thumbnail-image card-img" style="height: 200px;">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif" class="thumbnail-image card-img" style="height: 280px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -451,14 +473,123 @@ Lung Cancer Risk Predictor
 <div class="card-text listing-description delink">
 <p>A machine learning model evaluating confidence intervals.</p>
 </div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+feature
+</td>
+<td class="feature">
+true
+</td>
+</tr>
+
+<tr>
+<td>
+featured
+</td>
+<td class="featured">
+&nbsp;
+</td>
+</tr>
+
+</tbody></table>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="RGF0YSUyMFNjaWVuY2UlMkNUZWxlbWF0aWNz">
+<div class="g-col-1" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDQ2xhc3NpZmljYXRpb24=">
+<a href="https://migue-rc.github.io/FS-logistic-regression/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/FS-logistic-regression/refs/heads/main/assets/hero.gif" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Logistic Regression from Scratch
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q2xhc3NpZmljYXRpb24='); return false;">Classification</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>deep dive exploration of logistic regression, built entirely from scratch using Numerical Python</p>
+</div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+feature
+</td>
+<td class="feature">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+featured
+</td>
+<td class="featured">
+&nbsp;
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDTGluZWFyJTIwUmVncmVzc2lvbg==">
+<a href="https://migue-rc.github.io/FS-linear-regression/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/FS-linear-regression/refs/heads/main/assets/hero.gif" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Linear Regression from Scratch
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TGluZWFyJTIwUmVncmVzc2lvbg=='); return false;">Linear Regression</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Explores the underlying math and nuances for this supervised learning algorithm.</p>
+</div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+feature
+</td>
+<td class="feature">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+featured
+</td>
+<td class="featured">
+&nbsp;
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="VGVsZW1hdGljcyUyQ0VEQQ==">
 <a href="https://migue-rc.github.io/car-insurance" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/assets/hero.jpg" class="thumbnail-image card-img" style="height: 200px;">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/car-insurance/refs/heads/main/assets/hero.jpg" class="thumbnail-image card-img" style="height: 280px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -466,22 +597,87 @@ Car Insurance &amp; Telematics Analytics
 </h5>
 <div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
 <div class="listing-category" onclick="window.quartoListingCategory('VGVsZW1hdGljcw=='); return false;">Telematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RURB'); return false;">EDA</div>
 
 </div>
 <div class="card-text listing-description delink">
 <p>Identify high-risk drivers, complex non-linear patterns into management strategies.</p>
 </div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+feature
+</td>
+<td class="feature">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+featured
+</td>
+<td class="featured">
+&nbsp;
+</td>
+</tr>
+
+</tbody></table>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="RGF0YSUyMFNjaWVuY2UlMkNFZHVjYXRpb24=">
+<div class="g-col-1" data-index="4" data-categories="RGF0YSUyMFNjaWVuY2UlMkNTdGF0aXN0aWNz">
+<a href="https://migue-rc.github.io/EDA_dogs" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg" class="thumbnail-image card-img" style="height: 280px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Aggressive dogs don’t bite
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Exploring the relationship between dog traits.</p>
+</div>
+<table class="card-other-values">
+
+<tbody><tr>
+<td>
+feature
+</td>
+<td class="feature">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+featured
+</td>
+<td class="featured">
+&nbsp;
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="RGF0YSUyMFNjaWVuY2UlMkNFZHVjYXRpb24=">
 <a href="https://migue-rc.github.io/student-performance" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/student-performance/refs/heads/main/student_performance_preview.gif" class="thumbnail-image card-img" style="height: 200px;">
+<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/student-performance/refs/heads/main/student_performance_preview.gif" class="thumbnail-image card-img" style="height: 280px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -497,29 +693,27 @@ Student Performance Analysis
 <div class="card-text listing-description delink">
 <p>Analyzing student performance across various variables.</p>
 </div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQZXRz">
-<a href="https://migue-rc.github.io/EDA_dogs" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Aggressive dogs don’t bite
-</h5>
-<div class="listing-categories">
+<table class="card-other-values">
 
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+<tbody><tr>
+<td>
+feature
+</td>
+<td class="feature">
+true
+</td>
+</tr>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGV0cw=='); return false;">Pets</div>
+<tr>
+<td>
+featured
+</td>
+<td class="featured">
+&nbsp;
+</td>
+</tr>
 
-</div>
-<div class="card-text listing-description delink">
-<p>Exploring the relationship between dog traits.</p>
-</div>
+</tbody></table>
 </div>
 </div></a>
 </div>
