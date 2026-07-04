@@ -4,27 +4,34 @@
     "href": "about.html",
     "title": "Miguel R.",
     "section": "",
-    "text": "I am a software engineer with a deep focus on data science, bridging the gap between complex predictive modeling and scalable, user-facing applications. With a strong foundation in React, React Native, and versatile backend development, I don’t just analyze data; I build the systems that put those insights directly into the hands of users.\nI have extensive experience architecting data-heavy applications, ensuring that large volumes of information are processed efficiently and displayed intuitively. I particularly thrive when working with geospatial data translating complex datasets into interactive, highly responsive maps that bring geographic insights to life and drive user engagement.\nMy passion for clean, reusable code drives me to deliver innovative solutions, whether I am engineering zero latency frontend deployments for machine learning models or optimizing system performance."
+    "text": "I’m a software engineer focused on data science — bridging the gap between predictive modeling and the scalable, user-facing applications that put those models to work.\nMy background combines full-stack development (React, React Native, TypeScript, and versatile backend work) with hands-on modeling in Python. I’ve architected data-heavy applications end to end: processing large volumes of information efficiently and presenting it intuitively. I particularly enjoy geospatial work — turning complex datasets into fast, interactive maps that make geographic insight obvious at a glance.\nI care about clean, reusable code — whether I’m engineering zero-latency frontend deployments for machine learning models or squeezing performance out of an existing system."
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
     "title": "Miguel R.",
     "section": "Education",
-    "text": "Education\nPontificia Universidad Católica M.S. in Data Science | In Progress\nAcademia de Guerra B.S. in Military Sciences"
+    "text": "Education\nPontificia Universidad Católica\nM.S. in Data Science · In Progress\nAcademia de Guerra\nB.S. in Military Sciences"
   },
   {
     "objectID": "about.html#core-competencies",
     "href": "about.html#core-competencies",
     "title": "Miguel R.",
     "section": "Core Competencies",
-    "text": "Core Competencies\n\nData Science & Modeling: Predictive Analytics, StatsModels, Scikit-Learn, TensorFlow.js, Geospatial Analysis, Quarto, Python.\nSoftware Engineering: Full-stack Web Development, Mobile App Development React/React Native, TypeScript, Bash.\nSystems & Tools: Linux, Google Cloud Platform, Amazon Web Services, PostgreSQL, MongoDB, Firebase."
+    "text": "Core Competencies\n\nData Science & Modeling: Predictive Analytics, StatsModels, Scikit-Learn, TensorFlow.js, Geospatial Analysis, Quarto, Python.\nSoftware Engineering: Full-stack Web Development, Mobile Development (React / React Native), TypeScript, Bash.\nSystems & Tools: Linux, Google Cloud Platform, Amazon Web Services, PostgreSQL, MongoDB, Firebase."
+  },
+  {
+    "objectID": "about.html#github-at-a-glance",
+    "href": "about.html#github-at-a-glance",
+    "title": "Miguel R.",
+    "section": "GitHub at a Glance",
+    "text": "GitHub at a Glance"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Data Science & Software Engineering",
     "section": "",
-    "text": "This my collection of curated content on data science and software engineering.\nSelect a category on the side to filter projects, or click a card to view the deployed application or notebook.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLung Cancer Risk Predictor\n\n\n\nData Science\n\nHealthcare\n\n\n\nA machine learning model evaluating confidence intervals.\n\n\n\n\n\nfeature\n\n\ntrue\n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression from Scratch\n\n\n\nMachine Learning\n\nClassification\n\n\n\ndeep dive exploration of logistic regression, built entirely from scratch using Numerical Python\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression from Scratch\n\n\n\nMachine Learning\n\nLinear Regression\n\n\n\nExplores the underlying math and nuances for this supervised learning algorithm.\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCar Insurance & Telematics Analytics\n\n\n\nTelematics\n\nEDA\n\n\n\nIdentify high-risk drivers, complex non-linear patterns into management strategies.\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAggressive dogs don’t bite\n\n\n\nData Science\n\nStatistics\n\n\n\nExploring the relationship between dog traits.\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Performance Analysis\n\n\n\nData Science\n\nEducation\n\n\n\nAnalyzing student performance across various variables.\n\n\n\n\n\nfeature\n\n\ntrue\n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "I'm Miguel — a software engineer focused on data science. This is my hands-on work: machine-learning algorithms implemented from scratch, deployed predictive apps, and exploratory analyses.\n\n GitHub\n LinkedIn\n\nSelect a category on the side to filter projects, or click a card to open the app or notebook.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLung Cancer Risk Predictor\n\n\n\nData Science\n\nHealthcare\n\n\n\nA machine learning model evaluating confidence intervals.\n\n\n\n\n\nfeature\n\n\ntrue\n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogistic Regression from Scratch\n\n\n\nMachine Learning\n\nClassification\n\n\n\ndeep dive exploration of logistic regression, built entirely from scratch using Numerical Python\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression from Scratch\n\n\n\nMachine Learning\n\nLinear Regression\n\n\n\nExplores the underlying math and nuances for this supervised learning algorithm.\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCar Insurance & Telematics Analytics\n\n\n\nTelematics\n\nEDA\n\n\n\nIdentify high-risk drivers, complex non-linear patterns into management strategies.\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAggressive dogs don’t bite\n\n\n\nData Science\n\nStatistics\n\n\n\nExploring the relationship between dog traits.\n\n\n\n\n\nfeature\n\n\n \n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Performance Analysis\n\n\n\nData Science\n\nEducation\n\n\n\nAnalyzing student performance across various variables.\n\n\n\n\n\nfeature\n\n\ntrue\n\n\n\n\n\nfeatured\n\n\n \n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

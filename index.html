@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-3f230b53dc93e4a04bf4a3505d77a42a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2be3c1ddda3f8d9d3a8ab80ecaffd37e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-a272671ba4d92578c113c78fea039fe8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-2be3c1ddda3f8d9d3a8ab80ecaffd37e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-22e386d673eb27a037a9ab8590791d54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-df7de8fec9041e4cf553be1fa0c04d3f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-22e386d673eb27a037a9ab8590791d54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -377,8 +377,14 @@ window.Quarto = {
 </header>
 
 
-<p>This my collection of curated content on <strong>data science</strong> and <strong>software engineering</strong>.</p>
-<p>Select a category on the side to filter projects, or click a card to view the deployed application or notebook.</p>
+<div class="site-hero">
+<p class="hero-tagline">I'm <strong>Miguel</strong> — a software engineer focused on <strong>data science</strong>. This is my hands-on work: machine-learning algorithms implemented from scratch, deployed predictive apps, and exploratory analyses.</p>
+<div class="hero-actions">
+<a class="hero-btn" href="https://github.com/migue-rc"><i class="bi bi-github"></i> GitHub</a>
+<a class="hero-btn" href="https://linkedin.com/in/rmigue"><i class="bi bi-linkedin"></i> LinkedIn</a>
+</div>
+<p class="hero-hint">Select a category on the side to filter projects, or click a card to open the app or notebook.</p>
+</div>
 <script>
 (function () {
   function applyFeatured() {
@@ -426,9 +432,99 @@ window.Quarto = {
       });
   }
 
+  var REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CAN_HOVER = window.matchMedia('(hover: hover)').matches;
+
+  // "(4)" -> "4": the chip styling supplies the enclosure.
+  function tidyCounts() {
+    document
+      .querySelectorAll('.quarto-listing-category .quarto-category-count')
+      .forEach(function (el) {
+        el.textContent = el.textContent.replace(/[()]/g, '').trim();
+      });
+  }
+
+  // Fade card images in once loaded (placeholder tint shows meanwhile).
+  function fadeInImages() {
+    document
+      .querySelectorAll('#listing-listing .thumbnail-image')
+      .forEach(function (img) {
+        if (img.dataset.fadeBound) return;
+        img.dataset.fadeBound = '1';
+        img.classList.add('img-fade');
+        var done = function () { img.classList.add('img-loaded'); };
+        if (img.complete && img.naturalWidth) done();
+        else {
+          img.addEventListener('load', done);
+          img.addEventListener('error', done); // never leave a broken img invisible
+        }
+      });
+  }
+
+  // Cards rise into view on first scroll; disabled for reduced motion.
+  function animateOnScroll() {
+    if (REDUCED_MOTION || !('IntersectionObserver' in window)) return;
+    if (!animateOnScroll.io) {
+      animateOnScroll.io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            animateOnScroll.io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+    }
+    document
+      .querySelectorAll('#listing-listing .list > [class*="g-col"]')
+      .forEach(function (el) {
+        if (el.dataset.animBound) return;
+        el.dataset.animBound = '1';
+        el.classList.add('scroll-anim');
+        animateOnScroll.io.observe(el);
+      });
+  }
+
+  // GIF thumbnails: draw a static poster frame on a canvas overlay and only
+  // reveal the animating GIF while the card is hovered. Hover-capable
+  // devices only — on touch, GIFs simply play as before.
+  function gifHoverPause() {
+    if (!CAN_HOVER) return;
+    document
+      .querySelectorAll('#listing-listing .quarto-grid-item')
+      .forEach(function (card) {
+        if (card.dataset.gifBound) return;
+        card.dataset.gifBound = '1';
+        var img = card.querySelector('.thumbnail-image');
+        if (!img || !/\.gif(\?|$)/i.test(img.getAttribute('src') || '')) return;
+        var setup = function () {
+          if (!img.naturalWidth || card.querySelector('.gif-poster')) return;
+          var holder = img.parentElement;
+          holder.classList.add('gif-holder');
+          var canvas = document.createElement('canvas');
+          canvas.className = 'gif-poster';
+          var w = (canvas.width = img.clientWidth || img.naturalWidth);
+          var h = (canvas.height = img.clientHeight || img.naturalHeight);
+          // object-fit: cover equivalent
+          var s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+          var dw = img.naturalWidth * s;
+          var dh = img.naturalHeight * s;
+          canvas.getContext('2d').drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+          holder.appendChild(canvas);
+          card.addEventListener('mouseenter', function () { canvas.style.opacity = '0'; });
+          card.addEventListener('mouseleave', function () { canvas.style.opacity = '1'; });
+        };
+        if (img.complete && img.naturalWidth) setup();
+        else img.addEventListener('load', setup);
+      });
+  }
+
   function apply() {
     applyFeatured();
     colorCategories();
+    tidyCounts();
+    fadeInImages();
+    animateOnScroll();
+    gifHoverPause();
   }
 
   function init() {
@@ -1134,6 +1230,32 @@ featured
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Miguel RC</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/migue-rc">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/rmigue">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
