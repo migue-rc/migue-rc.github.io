@@ -7,7 +7,7 @@
   feature: true
 
 - title: "Lung Cancer Risk Predictor"
-  description: "A machine learning model evaluating confidence intervals."
+  description: "Interactive risk estimator — logistic regression running fully in the browser."
   path: "https://migue-rc.github.io/lung-cancer-risk"
   image: "https://raw.githubusercontent.com/migue-rc/lung-cancer-risk/refs/heads/main/frontend/public/lung-cancer-risk-demo.gif"
   categories: [Data Science, Healthcare]
@@ -22,7 +22,7 @@
   order: 4
 
 - title: "Aggressive dogs don't bite"
-  description: "Exploring the relationship between dog traits."
+  description: "Why the friendliest breeds rack up the most reported bites — a lesson in base rates."
   path: "https://migue-rc.github.io/EDA_dogs"
   categories: [Data Science, Statistics]
   image: "https://raw.githubusercontent.com/migue-rc/EDA_dogs/refs/heads/main/assets/hero.jpg"
