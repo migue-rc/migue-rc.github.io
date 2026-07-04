@@ -16,6 +16,13 @@ website:
         href: https://github.com/migue-rc
       - icon: linkedin
         href: https://linkedin.com/in/rmigue
+  page-footer:
+    left: "© 2026 Miguel RC"
+    right:
+      - icon: github
+        href: https://github.com/migue-rc
+      - icon: linkedin
+        href: https://linkedin.com/in/rmigue
 
 format:
   html:

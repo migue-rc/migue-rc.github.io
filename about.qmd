@@ -17,21 +17,38 @@ about:
       href: mailto:miguel@debloat.us
 ---
 
-I am a software engineer with a deep focus on data science, bridging the gap between complex predictive modeling and scalable, user-facing applications. With a strong foundation in React, React Native, and versatile backend development, I don't just analyze data; I build the systems that put those insights directly into the hands of users.
+I'm a software engineer focused on **data science** — bridging the gap between predictive modeling and the scalable, user-facing applications that put those models to work.
 
-I have extensive experience architecting data-heavy applications, ensuring that large volumes of information are processed efficiently and displayed intuitively. I particularly thrive when working with geospatial data translating complex datasets into interactive, highly responsive maps that bring geographic insights to life and drive user engagement.
+My background combines full-stack development (React, React Native, TypeScript, and versatile backend work) with hands-on modeling in Python. I've architected data-heavy applications end to end: processing large volumes of information efficiently and presenting it intuitively. I particularly enjoy **geospatial work** — turning complex datasets into fast, interactive maps that make geographic insight obvious at a glance.
 
-My passion for clean, reusable code drives me to deliver innovative solutions, whether I am engineering zero latency frontend deployments for machine learning models or optimizing system performance.
+I care about clean, reusable code — whether I'm engineering zero-latency frontend deployments for machine learning models or squeezing performance out of an existing system.
 
 ## Education
 
-**Pontificia Universidad Católica** 
-M.S. in Data Science | `In Progress`    
+**Pontificia Universidad Católica**\
+M.S. in Data Science · `In Progress`
 
-**Academia de Guerra** B.S. in Military Sciences 
+**Academia de Guerra**\
+B.S. in Military Sciences
 
 ## Core Competencies
 
 * **Data Science & Modeling:** Predictive Analytics, StatsModels, Scikit-Learn, TensorFlow.js, Geospatial Analysis, Quarto, Python.
-* **Software Engineering:** Full-stack Web Development, Mobile App Development React/React Native, TypeScript, Bash.
-* **Systems & Tools:** Linux, Google Cloud Platform, Amazon Web Services, PostgreSQL, MongoDB, Firebase. 
+* **Software Engineering:** Full-stack Web Development, Mobile Development (React / React Native), TypeScript, Bash.
+* **Systems & Tools:** Linux, Google Cloud Platform, Amazon Web Services, PostgreSQL, MongoDB, Firebase.
+
+## GitHub at a Glance
+
+```{=html}
+<!-- Each element exists twice (light/dark variant); the active theme bundle
+     sets --gh-show-light / --gh-show-dark so only one of the pair renders.
+     Everything links to the GitHub profile. -->
+<div class="gh-cards">
+<a class="gh-card-light" href="https://github.com/migue-rc"><img class="gh-wall" src="https://ghchart.rshah.org/185fa5/migue-rc" alt="GitHub contributions graph for migue-rc" loading="lazy"></a>
+<a class="gh-card-dark" href="https://github.com/migue-rc"><img class="gh-wall" src="https://ghchart.rshah.org/66d9ef/migue-rc" alt="GitHub contributions graph for migue-rc" loading="lazy"></a>
+<a class="gh-card-light" href="https://github.com/migue-rc"><img src="https://awesome-github-stats.azurewebsites.net/user-stats/migue-rc?cardType=level-alternate&preferLogin=false&theme=default" alt="GitHub stats for migue-rc" loading="lazy"></a>
+<a class="gh-card-dark" href="https://github.com/migue-rc"><img src="https://awesome-github-stats.azurewebsites.net/user-stats/migue-rc?cardType=level-alternate&preferLogin=false&theme=radical" alt="GitHub stats for migue-rc" loading="lazy"></a>
+<a class="gh-card-light" href="https://github.com/migue-rc"><img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=migue-rc&theme=default" alt="GitHub profile summary for migue-rc" loading="lazy"></a>
+<a class="gh-card-dark" href="https://github.com/migue-rc"><img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=migue-rc&theme=radical" alt="GitHub profile summary for migue-rc" loading="lazy"></a>
+</div>
+```

@@ -134,15 +134,20 @@ body {
 .cat-numpy             { --cat-color: #0e7490; } /* dark cyan   */
 .cat-visualization     { --cat-color: #0369a1; } /* steel blue  */
 
-/* --- Card tags: solid filled pill, white text (same in both modes) --- */
+/* --- Card tags: outlined pill in the category color ---
+   --cat-pill-color defaults to the raw category hue (fine on light
+   backgrounds); sketchy-dark.scss redefines it lightened toward white so
+   the outline/text stays readable on the dark card background. */
 .listing-category.cat-colored {
-    color: #ffffff !important;
-    border-color: transparent !important;
-    background-color: var(--cat-color, #6c757d) !important;
+    color: var(--cat-pill-color, var(--cat-color, #6c757d)) !important;
+    border: 1.5px solid var(--cat-pill-color, var(--cat-color, #6c757d)) !important;
+    background-color: transparent !important;
 }
 
+/* Hover: soft tint of the same color behind the outline */
 .listing-category.cat-colored:hover {
-    filter: brightness(1.12);
+    background-color: color-mix(in srgb,
+        var(--cat-pill-color, var(--cat-color, #6c757d)) 15%, transparent) !important;
     transform: translateY(-1px);
 }
 
@@ -261,6 +266,190 @@ body {
    manual light/dark toggle.) */
 
 /* =================================================================
+   HERO HEADER
+   ================================================================= */
+h1.title {
+    font-size: 2.3rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.site-hero .hero-tagline {
+    font-size: 1.12rem;
+    line-height: 1.7;
+    max-width: 46rem;
+    opacity: 0.88;
+    margin-bottom: 0.4rem;
+}
+
+.site-hero .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0 0.8rem;
+}
+
+/* Same look as the About page's trestles link buttons: body-color text,
+   1px currentColor border, 6px radius — adapts to light/dark automatically. */
+.site-hero .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    border: solid 1px;
+    border-radius: 6px;
+    color: inherit !important;
+    font-size: 0.95rem;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease;
+}
+
+.site-hero .hero-btn:hover {
+    background-color: rgba(128, 128, 128, 0.12);
+}
+
+.site-hero .hero-hint {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-bottom: 0;
+}
+
+/* =================================================================
+   SIDEBAR COUNT CHIPS — the "(4)" counters as tiny muted chips
+   (the script strips the parentheses)
+   ================================================================= */
+.quarto-listing-category .quarto-category-count {
+    display: inline-block;
+    font-size: 0.72em;
+    line-height: 1.4;
+    padding: 0.02rem 0.45rem;
+    border-radius: 999px;
+    background-color: rgba(128, 128, 128, 0.18);
+    margin-left: 0.2rem;
+    vertical-align: middle;
+}
+
+/* =================================================================
+   IMAGE LOADING — placeholder tint + fade-in when loaded
+   ================================================================= */
+.quarto-grid-item .card-img-top {
+    background-color: rgba(128, 128, 128, 0.12);
+}
+
+.img-fade {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.img-fade.img-loaded {
+    opacity: 1;
+}
+
+/* =================================================================
+   SCROLL-IN ANIMATION (cards fade/rise as they enter the viewport)
+   ================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+    .scroll-anim {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .scroll-anim.in-view {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =================================================================
+   FEATURED RIBBON
+   ================================================================= */
+.card.card-featured {
+    position: relative;
+}
+
+.card.card-featured::after {
+    content: "Featured";
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background-color: var(--card-accent, #2b7fd4);
+    color: var(--card-accent-contrast, #ffffff);
+    pointer-events: none;
+}
+
+/* =================================================================
+   GIF POSTER — static first frame drawn on a canvas; the script
+   fades it out on hover so the GIF only animates when hovered.
+   ================================================================= */
+.gif-holder {
+    position: relative;
+}
+
+.gif-holder .gif-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+/* =================================================================
+   GITHUB STATS CARDS (About page — third-party widget images)
+   ================================================================= */
+.gh-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin: 0.5rem 0 1rem;
+    max-width: 640px;
+}
+
+.gh-cards img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+/* Light/dark pair visibility — the variables are set by the active theme
+   bundle (sketchy-light/-dark.scss). Fallbacks assume light mode. */
+.gh-cards .gh-card-light {
+    display: var(--gh-show-light, block);
+}
+
+.gh-cards .gh-card-dark {
+    display: var(--gh-show-dark, none);
+}
+
+/* =================================================================
+   FOOTER
+   ================================================================= */
+.nav-footer {
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
+    padding: 1rem 0 !important;
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+.nav-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-footer a:hover {
+    color: var(--card-accent, #2b7fd4);
+}
+
+/* =================================================================
    MOBILE — full-bleed "feed" layout
    On phones the cards drop their card chrome (border, radius, shadow,
    background) and become a vertical feed: edge-to-edge image, text
@@ -337,5 +526,10 @@ body {
     /* Normalize featured title size to match the feed. */
     .card.card-featured .card-title {
         font-size: 1.15rem !important;
+    }
+
+    /* The feed flattens the featured card, so the ribbon is noise here. */
+    .card.card-featured::after {
+        display: none;
     }
 }
