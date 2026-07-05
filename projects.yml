@@ -14,6 +14,13 @@
   order: 6
   feature: true
 
+- title: "FIFA World Cup 2026 Predictor"
+  description: "One Poisson model per national team, predicting every World Cup round live as the tournament unfolds."
+  path: "https://migue-rc.github.io/fwc2026"
+  categories: [Machine Learning, Statistics]
+  image: "https://raw.githubusercontent.com/migue-rc/fwc2026/main/charts/elo-landscape.png"
+  order: 3
+
 - title: "Car Insurance & Telematics Analytics"
   description: "Identify high-risk drivers, complex non-linear patterns into management strategies."
   path: "https://migue-rc.github.io/car-insurance"
