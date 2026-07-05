@@ -16,25 +16,15 @@ project is on GitHub at https://github.com/migue-rc.
 
 ## Projects
 
-- [FIFA World Cup 2026 Predictor](https://migue-rc.github.io/fwc2026/): live
-  experiment predicting every round of the 2026 World Cup as it happens - one
-  Poisson regression per national team plus a tuned player-quality layer,
-  scored against reality after every round
-- [Student Performance Analysis](https://migue-rc.github.io/student-performance/):
-  end-to-end regression pipeline (data prep, EDA, modeling, conclusions)
-  predicting exam performance
-- [Lung Cancer Risk Predictor](https://migue-rc.github.io/lung-cancer-risk/):
-  L1-regularized logistic regression served as an interactive in-browser risk
-  estimator, with full modeling notebook
-- [Car Insurance & Telematics Analytics](https://migue-rc.github.io/car-insurance/):
-  claim prediction and driver-risk labeling from telematics data with
-  gradient-boosting models and clustering
-- [Aggressive Dogs Don't Bite (Or Do They?)](https://migue-rc.github.io/EDA_dogs/):
-  exploratory analysis of dog-bite reports - a case study in base-rate fallacy
-- [Linear Regression from Scratch](https://migue-rc.github.io/FS-linear-regression/):
-  the algorithm derived and implemented with NumPy only, with animated visuals
-- [Logistic Regression from Scratch](https://migue-rc.github.io/FS-logistic-regression/):
-  companion deep dive on logistic regression, also NumPy-only
+<!-- BEGIN AUTO-PROJECTS (generated from projects.yml -- run `make discoverability`) -->
+- [Student Performance Analysis](https://migue-rc.github.io/student-performance/): Analyzing student performance across various variables
+- [Aggressive dogs don't bite](https://migue-rc.github.io/EDA_dogs/): Why the friendliest breeds rack up the most reported bites — a lesson in base rates
+- [FIFA World Cup 2026 Predictor](https://migue-rc.github.io/fwc2026/): One Poisson model per national team, predicting every World Cup round live as the tournament unfolds
+- [Lung Cancer Risk Predictor](https://migue-rc.github.io/lung-cancer-risk/): Interactive risk estimator — logistic regression running fully in the browser
+- [Car Insurance & Telematics Analytics](https://migue-rc.github.io/car-insurance/): Identify high-risk drivers, complex non-linear patterns into management strategies
+- [Linear Regression from Scratch](https://migue-rc.github.io/FS-linear-regression/): Explores the underlying math and nuances for this supervised learning algorithm
+- [Logistic Regression from Scratch](https://migue-rc.github.io/FS-logistic-regression/): Deep dive on logistic regression, built entirely from scratch with NumPy
+<!-- END AUTO-PROJECTS -->
 
 ## Optional
 

@@ -46,11 +46,13 @@ User-agent: meta-externalagent
 Allow: /
 
 # Sitemaps: hub + every project site on this host
+# BEGIN AUTO-SITEMAPS (generated from projects.yml -- run `make discoverability`)
 Sitemap: https://migue-rc.github.io/sitemap.xml
-Sitemap: https://migue-rc.github.io/fwc2026/sitemap.xml
 Sitemap: https://migue-rc.github.io/student-performance/sitemap.xml
+Sitemap: https://migue-rc.github.io/EDA_dogs/sitemap.xml
+Sitemap: https://migue-rc.github.io/fwc2026/sitemap.xml
 Sitemap: https://migue-rc.github.io/lung-cancer-risk/sitemap.xml
 Sitemap: https://migue-rc.github.io/car-insurance/sitemap.xml
-Sitemap: https://migue-rc.github.io/EDA_dogs/sitemap.xml
 Sitemap: https://migue-rc.github.io/FS-linear-regression/sitemap.xml
 Sitemap: https://migue-rc.github.io/FS-logistic-regression/sitemap.xml
+# END AUTO-SITEMAPS
