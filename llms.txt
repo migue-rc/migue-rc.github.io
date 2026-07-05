@@ -1,0 +1,43 @@
+# Miguel RC — Data Science & Software Engineering Portfolio
+
+> Portfolio and blog of Miguel RC: applied machine learning and data science
+> projects, each published as a fully rendered, self-contained site with
+> notebooks, methodology, results and honest limitations. All content is
+> public and free to crawl, index and cite.
+
+The hub (this site) lists every project; each project lives at its own
+subpath on this host with its own pages and sitemap. Source code for every
+project is on GitHub at https://github.com/migue-rc.
+
+## Site
+
+- [Home](https://migue-rc.github.io/index.html): project gallery with descriptions and categories
+- [About](https://migue-rc.github.io/about.html): bio, education and GitHub activity
+
+## Projects
+
+- [FIFA World Cup 2026 Predictor](https://migue-rc.github.io/fwc2026/): live
+  experiment predicting every round of the 2026 World Cup as it happens - one
+  Poisson regression per national team plus a tuned player-quality layer,
+  scored against reality after every round
+- [Student Performance Analysis](https://migue-rc.github.io/student-performance/):
+  end-to-end regression pipeline (data prep, EDA, modeling, conclusions)
+  predicting exam performance
+- [Lung Cancer Risk Predictor](https://migue-rc.github.io/lung-cancer-risk/):
+  L1-regularized logistic regression served as an interactive in-browser risk
+  estimator, with full modeling notebook
+- [Car Insurance & Telematics Analytics](https://migue-rc.github.io/car-insurance/):
+  claim prediction and driver-risk labeling from telematics data with
+  gradient-boosting models and clustering
+- [Aggressive Dogs Don't Bite (Or Do They?)](https://migue-rc.github.io/EDA_dogs/):
+  exploratory analysis of dog-bite reports - a case study in base-rate fallacy
+- [Linear Regression from Scratch](https://migue-rc.github.io/FS-linear-regression/):
+  the algorithm derived and implemented with NumPy only, with animated visuals
+- [Logistic Regression from Scratch](https://migue-rc.github.io/FS-logistic-regression/):
+  companion deep dive on logistic regression, also NumPy-only
+
+## Optional
+
+- [Search index](https://migue-rc.github.io/search.json): full-text index of hub pages
+- [Listing data](https://migue-rc.github.io/listings.json): machine-readable project listing
+- [GitHub profile](https://github.com/migue-rc): source repositories for all projects
