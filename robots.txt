@@ -1,0 +1,56 @@
+# migue-rc.github.io — everything on this site may be crawled and indexed.
+# AI crawlers and agents are explicitly welcome. See /llms.txt for a
+# machine-friendly guide to the content.
+
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers (explicitly allowed)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Sitemaps: hub + every project site on this host
+Sitemap: https://migue-rc.github.io/sitemap.xml
+Sitemap: https://migue-rc.github.io/fwc2026/sitemap.xml
+Sitemap: https://migue-rc.github.io/student-performance/sitemap.xml
+Sitemap: https://migue-rc.github.io/lung-cancer-risk/sitemap.xml
+Sitemap: https://migue-rc.github.io/car-insurance/sitemap.xml
+Sitemap: https://migue-rc.github.io/EDA_dogs/sitemap.xml
+Sitemap: https://migue-rc.github.io/FS-linear-regression/sitemap.xml
+Sitemap: https://migue-rc.github.io/FS-logistic-regression/sitemap.xml

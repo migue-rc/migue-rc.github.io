@@ -1,5 +1,8 @@
 project:
   type: website
+  resources:
+    - robots.txt
+    - llms.txt
 
 website:
   title: "Miguel RC"
