@@ -36,7 +36,7 @@
   order: 5
 
 - title: "Logistic Regression from Scratch"
-  description: "deep dive exploration of logistic regression, built entirely from scratch using Numerical Python"
+  description: "Deep dive on logistic regression, built entirely from scratch with NumPy."
   path: "https://migue-rc.github.io/FS-logistic-regression/"
   categories: [Machine Learning, Classification]
   image: "https://raw.githubusercontent.com/migue-rc/FS-logistic-regression/refs/heads/main/assets/hero.gif"
