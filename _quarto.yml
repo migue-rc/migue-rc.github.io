@@ -3,6 +3,7 @@ project:
   resources:
     - robots.txt
     - llms.txt
+    - "af185d73d078f52cc76e8ba7bcaca215.txt" # IndexNow ownership key
 
 website:
   title: "Miguel RC"
