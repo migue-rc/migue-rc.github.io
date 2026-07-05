@@ -8,10 +8,9 @@ retrieval layers of AI search products, so this covers "LLM discoverability"
 too.
 
 How it works:
-1. The ownership key is auto-discovered: the `<key>.txt` file in the repo
-   root whose content equals its own name (served at the site root, which is
-   how IndexNow verifies we own the host). IndexNow keys are public by
-   design - no secret needed.
+1. The ownership key lives in indexnow-key.txt at the repo (and site) root.
+   Its location at the host root authorizes every URL on the host, project
+   sites included. IndexNow keys are public by design - no secret needed.
 2. The sitemap list comes from the Sitemap: lines of robots.txt, which
    gen_discoverability.py keeps in sync with projects.yml.
 3. Each live sitemap is fetched; URLs with a <lastmod> within --since-days
@@ -37,12 +36,13 @@ ENDPOINT = "https://api.indexnow.org/indexnow"
 
 
 def find_key() -> str:
-    for path in ROOT.glob("*.txt"):
-        stem = path.stem
-        if re.fullmatch(r"[0-9a-f]{32}", stem) and path.read_text().strip() == stem:
-            return stem
-    sys.exit("ERROR: IndexNow key file not found in repo root "
-             "(expected <32-hex-key>.txt containing its own name).")
+    key_path = ROOT / "indexnow-key.txt"
+    if not key_path.exists():
+        sys.exit("ERROR: indexnow-key.txt not found in repo root.")
+    key = key_path.read_text().strip()
+    if not re.fullmatch(r"[0-9a-zA-Z-]{8,128}", key):
+        sys.exit("ERROR: indexnow-key.txt does not contain a valid IndexNow key.")
+    return key
 
 
 def sitemap_urls() -> list[str]:
@@ -82,7 +82,7 @@ def main() -> None:
     args = parser.parse_args()
 
     key = find_key()
-    print(f"==> IndexNow key found: {key}.txt (served at the site root)")
+    print("==> IndexNow key loaded from indexnow-key.txt (served at the site root)")
     cutoff = datetime.now(timezone.utc) - timedelta(days=args.since_days)
     sitemaps = sitemap_urls()
     print(f"==> Checking {len(sitemaps)} sitemap(s) for URLs changed in the "
@@ -114,7 +114,7 @@ def main() -> None:
     payload = json.dumps({
         "host": HOST,
         "key": key,
-        "keyLocation": f"https://{HOST}/{key}.txt",
+        "keyLocation": f"https://{HOST}/indexnow-key.txt",
         "urlList": batch,
     }).encode()
     request = urllib.request.Request(
