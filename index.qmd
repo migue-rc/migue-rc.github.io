@@ -4,7 +4,7 @@ listing:
   contents: projects.yml
   type: grid
   categories: true
-  sort: "order desc"
+  sort: "order asc"
   fields: [image, title, description, categories, feature, featured]
   grid-columns: 2
   image-height: "280px"
