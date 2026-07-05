@@ -11,7 +11,9 @@ indexnow:
 	python3 scripts/submit_indexnow.py
 
 publish: discoverability
+	@echo "==> Publishing site to gh-pages"
 	quarto publish gh-pages
+	@echo "==> Notifying search engines via IndexNow"
 	python3 scripts/submit_indexnow.py
 
 preview:

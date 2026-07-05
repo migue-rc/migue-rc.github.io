@@ -82,27 +82,33 @@ def main() -> None:
     args = parser.parse_args()
 
     key = find_key()
+    print(f"==> IndexNow key found: {key}.txt (served at the site root)")
     cutoff = datetime.now(timezone.utc) - timedelta(days=args.since_days)
+    sitemaps = sitemap_urls()
+    print(f"==> Checking {len(sitemaps)} sitemap(s) for URLs changed in the "
+          f"last {args.since_days} day(s)")
 
     batch: list[str] = []
-    for sitemap in sitemap_urls():
+    for sitemap in sitemaps:
+        print(f"    fetching {sitemap} ...", end=" ", flush=True)
         try:
             xml = fetch(sitemap)
         except Exception as error:  # noqa: BLE001 - never break the publish
-            print(f"indexnow: WARNING could not fetch {sitemap}: {error}")
+            print(f"WARNING: could not fetch ({error})")
             continue
         fresh = changed_urls(xml, cutoff)
-        print(f"indexnow: {sitemap} -> {len(fresh)} changed URL(s)")
+        print(f"{len(fresh)} changed URL(s)")
         batch.extend(fresh)
 
     batch = sorted(set(batch))
     if not batch:
-        print("indexnow: nothing changed in the window, nothing to submit")
+        print("==> Nothing changed in the window, nothing to submit")
         return
+    print(f"==> {len(batch)} URL(s) to submit:")
+    for url in batch:
+        print(f"    {url}")
     if args.dry_run:
-        print("indexnow: DRY RUN, would submit:")
-        for url in batch:
-            print(f"  {url}")
+        print("==> DRY RUN: skipping submission")
         return
 
     payload = json.dumps({
@@ -114,13 +120,14 @@ def main() -> None:
     request = urllib.request.Request(
         ENDPOINT, data=payload,
         headers={"Content-Type": "application/json; charset=utf-8"})
+    print(f"==> Submitting batch to {ENDPOINT}")
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
-            print(f"indexnow: submitted {len(batch)} URL(s), HTTP {response.status}")
+            print(f"==> Done: {len(batch)} URL(s) accepted, HTTP {response.status}")
     except urllib.error.HTTPError as error:
-        print(f"indexnow: WARNING submission rejected: HTTP {error.code} {error.read().decode()[:200]}")
+        print(f"==> WARNING submission rejected: HTTP {error.code} {error.read().decode()[:200]}")
     except Exception as error:  # noqa: BLE001
-        print(f"indexnow: WARNING submission failed: {error}")
+        print(f"==> WARNING submission failed: {error}")
 
 
 if __name__ == "__main__":

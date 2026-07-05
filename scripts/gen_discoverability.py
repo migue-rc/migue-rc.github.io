@@ -34,19 +34,24 @@ def replace_block(text: str, begin: str, end: str, body: str, filename: str) -> 
 
 
 def main() -> None:
+    print("==> Reading projects.yml")
     projects = yaml.safe_load((ROOT / "projects.yml").read_text())
     projects = [p for p in projects if str(p.get("path", "")).startswith(HOST)]
     projects.sort(key=lambda p: p.get("order", 999))
+    print(f"    {len(projects)} project card(s) on this host")
 
     # robots.txt: hub sitemap first, then one line per project site.
     sitemap_lines = [f"Sitemap: {HOST}/sitemap.xml"]
     for p in projects:
         sitemap_lines.append(f"Sitemap: {p['path'].rstrip('/')}/sitemap.xml")
 
+    print("==> Updating robots.txt")
     robots_path = ROOT / "robots.txt"
     robots_path.write_text(replace_block(
         robots_path.read_text(), ROBOTS_BEGIN, ROBOTS_END,
         "\n".join(sitemap_lines), "robots.txt"))
+    for line in sitemap_lines:
+        print(f"    {line}")
 
     # llms.txt: one entry per project card.
     llms_lines = []
@@ -54,14 +59,16 @@ def main() -> None:
         description = str(p.get("description", "")).strip().rstrip(".")
         llms_lines.append(f"- [{p['title']}]({p['path'].rstrip('/')}/): {description}")
 
+    print("==> Updating llms.txt")
     llms_path = ROOT / "llms.txt"
     llms_path.write_text(replace_block(
         llms_path.read_text(), LLMS_BEGIN, LLMS_END,
         "\n".join(llms_lines), "llms.txt"))
+    for p in projects:
+        print(f"    - {p['title']}")
 
-    print(f"discoverability: {len(projects)} projects -> "
-          f"{len(sitemap_lines)} sitemaps in robots.txt, "
-          f"{len(llms_lines)} entries in llms.txt")
+    print(f"==> Done: {len(sitemap_lines)} sitemap(s) in robots.txt, "
+          f"{len(llms_lines)} project entr(ies) in llms.txt")
 
 
 if __name__ == "__main__":
