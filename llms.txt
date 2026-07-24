@@ -17,11 +17,12 @@ project is on GitHub at https://github.com/migue-rc.
 ## Projects
 
 <!-- BEGIN AUTO-PROJECTS (generated from projects.yml -- run `make discoverability`) -->
-- [Student Performance Analysis](https://migue-rc.github.io/student-performance/): Analyzing student performance across various variables
-- [Aggressive dogs don't bite](https://migue-rc.github.io/EDA_dogs/): Why the friendliest breeds rack up the most reported bites — a lesson in base rates
 - [FIFA World Cup 2026 Predictor](https://migue-rc.github.io/fwc2026/): One Poisson model per national team, predicting every World Cup round live as the tournament unfolds
-- [Lung Cancer Risk Predictor](https://migue-rc.github.io/lung-cancer-risk/): Interactive risk estimator — logistic regression running fully in the browser
+- [Data Science Cheat Sheet](https://migue-rc.github.io/Data-Science-Cheatsheet/): A helpful 5-page data science cheatsheet to assist with exam reviews, interview prep, and anything in-between
+- [Student Performance Analysis](https://migue-rc.github.io/student-performance/): Analyzing student performance across various variables
 - [Car Insurance & Telematics Analytics](https://migue-rc.github.io/car-insurance/): Identify high-risk drivers, complex non-linear patterns into management strategies
+- [Aggressive dogs don't bite](https://migue-rc.github.io/EDA_dogs/): Why the friendliest breeds rack up the most reported bites — a lesson in base rates
+- [Lung Cancer Risk Predictor](https://migue-rc.github.io/lung-cancer-risk/): Interactive risk estimator — logistic regression running fully in the browser
 - [Linear Regression from Scratch](https://migue-rc.github.io/FS-linear-regression/): Explores the underlying math and nuances for this supervised learning algorithm
 - [Logistic Regression from Scratch](https://migue-rc.github.io/FS-logistic-regression/): Deep dive on logistic regression, built entirely from scratch with NumPy
 <!-- END AUTO-PROJECTS -->
